@@ -1,0 +1,50 @@
+{
+  "name": "ServoBT",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "type": "module",
+  "build": {
+    "appId": "com.HCC.ServoBT",
+    "productName": "ServoBT",
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json",
+      "assets/*",
+      "!node_modules/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "assets",
+        "to": "assets",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "linux": {
+      "target": ["deb","rpm"],
+      "category": "Utility", 
+      "maintainer": "HCC",
+      "synopsis": "A bluetooth servo controller application",
+      "description": "Abluetooth Servo Controlling app for Bluetooth Robot Arms. Official Website www.ServoBT.koyeb.app.",
+      "icon": "assets/servo-icon-vector.ico" 
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.preload.json",
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "electron": "^36.0.0",
+    "serialport": "^11.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.6",
+    "@types/node": "^20.2.5"
+  }
+}
